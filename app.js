@@ -5,13 +5,15 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 app.use("/files", express.static("files"));
+require('dotenv').config();
+
 //mongodb connection----------------------------------------------
-const mongoUrl =
-  "mongodb+srv://nikhilraikwar846:Anam846@cluster0.os12t.mongodb.net/pdf";
+const mongoUrl = process.env.MONGO_URL;
 
 mongoose
   .connect(mongoUrl, {
     useNewUrlParser: true,
+    useUnifiedTopology: true
   })
   .then(() => {
     console.log("Connected to database");
