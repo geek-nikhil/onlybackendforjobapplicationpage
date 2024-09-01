@@ -66,8 +66,14 @@ app.get("/get-files/:Name/:Email", async (req, res) => {
   }
 });
 
-
-
+app.get("/all", async (req, res) => {
+  try {
+    const data = await PdfSchema.find(); // Fetch all documents from the collection
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 //apis----------------------------------------------------------------
 app.get("/", async (req, res) => {
   res.send("Success!!!!!!");
