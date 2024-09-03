@@ -8,7 +8,7 @@ app.use("/files", express.static("files"));
 require('dotenv').config();
 
 //mongodb connection----------------------------------------------
-const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = process.env.MONGO_URl;
 
 mongoose
   .connect(mongoUrl, {
